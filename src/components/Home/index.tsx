@@ -1,9 +1,12 @@
 import { HOME_LOGO_URL_IMAGE } from '@/utils/constants'
+import { initialCards } from '@/utils'
+import { initializeGame } from '@/store/slices/gameSlice'
 import { useDispatch } from 'react-redux'
 
   const dispatch = useDispatch()
 
   const handleStart = () => {
+    dispatch(initializeGame(initialCards))
   }
 
   return (

@@ -2,6 +2,7 @@ import { Card, GameState } from '@/types'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 import { GAME_STATUS } from '@/utils/constants'
+import { shufflingCards } from '@/utils'
 
 const initialState: GameState = {
   cards: [],
@@ -14,6 +15,9 @@ const gameSlice = createSlice({
   initialState,
   reducers: {
     initializeGame(state, action: PayloadAction<Card[]>) {
+      state.cards = shufflingCards(action.payload)
+      state.selectedCards = []
+      state.gameStatus = GAME_STATUS.IDLE
     },
     resetGame(state) {}
   }
