@@ -1,3 +1,4 @@
+import { HOME_LOGO_URL_IMAGE } from '@/utils/constants'
 import { useDispatch } from 'react-redux'
 
   const dispatch = useDispatch()
@@ -9,7 +10,7 @@ import { useDispatch } from 'react-redux'
     <div className="flex flex-col items-center">
       <div className="mb-10 flex size-32 items-center justify-center rounded-full border-4 border-gray-300 bg-gray-200 shadow-lg">
         <img
-          src="/assets/images/image01.png"
+          src={HOME_LOGO_URL_IMAGE}
           alt="MeMemory Game"
           className="size-16 rounded-full object-cover"
         />

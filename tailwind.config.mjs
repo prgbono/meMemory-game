@@ -3,7 +3,11 @@
 export default {
   content: ['./src/**/*.{mjs,js,ts,jsx,tsx}'],
   theme: {
-    extend: {}
+    extend: {
+      backgroundImage: {
+        'card-texture': "url('/src/assets/card.png')"
+      }
+    }
   },
   plugins: []
 }
