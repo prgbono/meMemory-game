@@ -1,6 +1,8 @@
+import { checkMatch, flipCard } from '@/store/slices/gameSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { CardProps } from './Card.types'
+import { DELAY_FOR_MATCHING_IN_MILISECONDS } from '@/utils/constants'
 import { RootState } from '@/store'
 
 const Card: React.FC<CardProps> = ({ card }) => {
@@ -9,6 +11,14 @@ const Card: React.FC<CardProps> = ({ card }) => {
   const dispatch = useDispatch()
 
   const handleClickOnCard = () => {
+    if (!flipped && !matched) {
+      dispatch(flipCard(id))
+      if (selectedCards.length + 1 === 2) {
+        setTimeout(() => {
+          dispatch(checkMatch())
+        }, DELAY_FOR_MATCHING_IN_MILISECONDS)
+      }
+    }
   }
 
   return (
