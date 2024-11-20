@@ -1,3 +1,5 @@
+import 'animate.css'
+
 import { useDispatch, useSelector } from 'react-redux'
 
 import { GAME_STATUS } from '@/utils/constants'

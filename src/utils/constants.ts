@@ -8,3 +8,4 @@ export const GAME_STATUS = {
 } as const
 
 export const DELAY_FOR_MATCHING_IN_MILISECONDS = 800
+export const MILISECONDS_ANIMATION_IN_ELEMENT = 300

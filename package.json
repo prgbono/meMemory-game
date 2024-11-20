@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
+    "animate.css": "^4.1.1",
     "i18next": "^23.16.6",
     "i18next-http-backend": "^2.6.2",
     "react": "^18.3.1",
