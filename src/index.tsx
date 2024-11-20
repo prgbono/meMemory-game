@@ -1,4 +1,5 @@
 import 'tailwindcss/tailwind.css'
+import './i18n/i18n'
 
 import App from '@/components/App'
 import { Provider } from 'react-redux'
