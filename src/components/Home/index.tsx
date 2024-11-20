@@ -2,7 +2,10 @@ import { HOME_LOGO_URL_IMAGE } from '@/utils/constants'
 import { initialCards } from '@/utils'
 import { initializeGame } from '@/store/slices/gameSlice'
 import { useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
+const Home: React.FC = () => {
+  const { t } = useTranslation()
   const dispatch = useDispatch()
 
   const handleStart = () => {
@@ -18,14 +21,12 @@ import { useDispatch } from 'react-redux'
           className="size-16 rounded-full object-cover"
         />
       </div>
-      <h1 className="mb-16 text-5xl font-bold">
-        MeMemory
-      </h1>
+      <h1 className="mb-16 text-5xl font-bold">{t('home.me_memory')}</h1>
       <button
         onClick={handleStart}
         className="rounded-full bg-red-500 px-8 py-3 text-white transition-all hover:bg-red-600"
       >
-        Comenzar
+        {t('home.start')}
       </button>
     </div>
   )

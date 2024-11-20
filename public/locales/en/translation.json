@@ -1,0 +1,11 @@
+{
+  "home": {
+    "me_memory": "MeMemory",
+    "start": "Start"
+  },
+  "gameOverModal": {
+    "done": "Awesome!",
+    "all_pairs_matched": "All pairs found",
+    "play_again": "Play again"
+  }
+}
