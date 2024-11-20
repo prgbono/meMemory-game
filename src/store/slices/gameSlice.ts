@@ -56,12 +56,8 @@ const gameSlice = createSlice({
       }
     },
 
-    resetGame(state) {
-      state.cards = state.cards.map((card) => ({
-        ...card,
-        flipped: false,
-        matched: false
-      }))
+    resetGame(state, action: PayloadAction<Card[]>) {
+      state.cards = shufflingCards(action.payload) // Nuevo orden
       state.selectedCards = []
       state.gameStatus = GAME_STATUS.IDLE
     }
