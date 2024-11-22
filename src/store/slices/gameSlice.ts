@@ -4,7 +4,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { GAME_STATUS } from '@/utils/constants'
 import { shufflingCards } from '@/utils'
 
-const initialState: GameState = {
+export const initialState: GameState = {
   cards: [],
   selectedCards: [],
   gameStatus: GAME_STATUS.IDLE,
@@ -12,7 +12,7 @@ const initialState: GameState = {
   isRunning: false
 }
 
-const gameSlice = createSlice({
+export const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
