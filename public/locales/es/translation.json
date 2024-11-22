@@ -5,7 +5,6 @@
   },
   "gameOverModal": {
     "done": "¡Completado!",
-    "all_pairs_matched": "¡Has encontrado todas las parejas!",
     "play_again": "Jugar otra vez"
   }
 }

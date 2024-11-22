@@ -1,5 +1,6 @@
 import 'animate.css'
 
+import { resetGame, resetTimer } from '@/store/slices/gameSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { GAME_STATUS } from '@/utils/constants'
@@ -9,12 +10,14 @@ import Home from './Home'
 import LanguageSwitcher from '@/components/common/LanguageSwitcher'
 import { RootState } from '@/store'
 import { initialCards } from '@/utils'
-import { resetGame } from '@/store/slices/gameSlice'
 
 const App: React.FC = () => {
   const { cards, gameStatus } = useSelector((state: RootState) => state.game)
   const dispatch = useDispatch()
-  const restartGame = () => dispatch(resetGame(initialCards))
+  const restartGame = () => {
+    dispatch(resetGame(initialCards))
+    dispatch(resetTimer())
+  }
 
   return (
     <>

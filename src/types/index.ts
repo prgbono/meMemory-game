@@ -11,6 +11,8 @@ export interface GameState {
   cards: Card[]
   selectedCards: number[]
   gameStatus: GameStatusType
+  time: number
+  isRunning: boolean
 }
 
 export type GameStatusType = (typeof GAME_STATUS)[keyof typeof GAME_STATUS]

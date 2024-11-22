@@ -1,6 +1,7 @@
+import { initializeGame, startTimer } from '@/store/slices/gameSlice'
+
 import { HOME_LOGO_URL_IMAGE } from '@/utils/constants'
 import { initialCards } from '@/utils'
-import { initializeGame } from '@/store/slices/gameSlice'
 import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
@@ -10,6 +11,7 @@ const Home: React.FC = () => {
 
   const handleStart = () => {
     dispatch(initializeGame(initialCards))
+    dispatch(startTimer())
   }
 
   return (

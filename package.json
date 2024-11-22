@@ -15,6 +15,7 @@
     "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@reduxjs/toolkit": "^2.3.0",
     "animate.css": "^4.1.1",
     "i18next": "^23.16.6",

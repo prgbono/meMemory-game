@@ -7,7 +7,9 @@ import { shufflingCards } from '@/utils'
 const initialState: GameState = {
   cards: [],
   selectedCards: [],
-  gameStatus: GAME_STATUS.IDLE
+  gameStatus: GAME_STATUS.IDLE,
+  time: 0,
+  isRunning: false
 }
 
 const gameSlice = createSlice({
@@ -18,6 +20,8 @@ const gameSlice = createSlice({
       state.cards = shufflingCards(action.payload)
       state.selectedCards = []
       state.gameStatus = GAME_STATUS.IDLE
+      state.time = 0
+      state.isRunning = false
     },
 
     flipCard(state, action: PayloadAction<number>) {
@@ -60,10 +64,34 @@ const gameSlice = createSlice({
       state.cards = shufflingCards(action.payload) // Nuevo orden
       state.selectedCards = []
       state.gameStatus = GAME_STATUS.IDLE
+    },
+
+    startTimer(state) {
+      state.isRunning = true
+    },
+    stopTimer(state) {
+      state.isRunning = false
+    },
+    resetTimer(state) {
+      state.time = 0
+      state.isRunning = false
+    },
+    incrementTime(state) {
+      if (state.isRunning) {
+        state.time += 1
+      }
     }
   }
 })
 
-export const { initializeGame, flipCard, checkMatch, resetGame } =
-  gameSlice.actions
+export const {
+  initializeGame,
+  flipCard,
+  checkMatch,
+  resetGame,
+  startTimer,
+  stopTimer,
+  resetTimer,
+  incrementTime
+} = gameSlice.actions
 export default gameSlice.reducer
