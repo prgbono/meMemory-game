@@ -37,5 +37,28 @@ que sigas buscando parejas.
 4) Ejecutas "yarn start" para comenzar a desarrollar en http://localhost:3000
 
 
+## Consideraciones y decisiones en el desarrollo:
+
+### ¿Por qué ViteJS sobre CRA?
+  - El [proyecto original](https://github.com/iseazy/iseazy-frontend/) necesita una actualización de dependencias y una versión de node que no está cerca de la última estable. 
+  - [ViteJS](https://vite.dev/) es un empaquetador bastante más ligero y rápido, con un esqueleto de funciones bastante más escueto que, bajo mi punto de vista, es adecuado para configurar lo que realmente se precise. 
+  - En este caso, hemos optado por una plantilla de Vite que añadía muchas de las cosas que hemos empleado (React, typescript, test (vitest en lugar de Jest aunque está basado en éste), tailwind y algunas configuraciones de Pretties y Eslint muy cómodas).
+  
+### Estructura de carpetas/ficheros
+He intentado seguir una estructura basada en una separación de funcionalidades clara pero a la vez mantenible y escalable.
+![File structure](/src/assets/file_structure.png)
+He intentado seguir la estructura descrita en la segunda imágen. El número de componenetes utilizados no da para separar los mismos por funcionalidad, pero me parece adecuada la separación de funcionalidades del store, los tipos, los posibles custom hooks (ninguno de momento), la internacionalización, etc. Si siguiéramos desarrollando el juego, pasaríamos a organizar la carpeta componentes en módulos o features, con lo que estaríamos en la estructura 3.
+ 
+
+
+### Test
+Los tests son imprescindibles para mantener y asegurar la consistencia del código. De momento sólo están testeados algunos reducers.
+Sobre la localización de los archivos de test, normalmente se ubican en una carpeta **test** al mismo nivel de la carpeta **src** y mantener en esta carpeta una estructura de espejo de **src** sólo con archivos de tests. En este caso, los archivos test están al mismo nivel que el archivo testado.
+
+Evolución:
+- Persistencia. Si bien en caso de recargar iríamos a la página de bienvenida, podríamos guardar en localStorage o sessionStorage el estado de las cartas y cargarlos si se refresca sin finalizar el juego. Esto lo podríamos hacer con `sessionStarage` o con `localStorage`. En mi opinión `sessionStorage` sería mejor opción por el hecho de ser menos 'agresivo' (se eliminan los datos al cerrar la pestaña o el navegador, los datos sólo están disponibles en la pestaña usada mientras que los datos en `localStorage` han de ser eliminados manualmente.
+
+- Obtener imágenes aleatorias de una API externa consiguiendo así que no sean siempre las mismas. Para ello tendríamos que hacer una llamada http a una API externa. Con Redux, una forma de implementar esto sería añadir un thunk para operaciones asincrónicas.
+
 ##### Esta propuesta de solución está generada desde [esta plantilla](https://github.com/joaopaulomoraes/reactjs-vite-tailwindcss-boilerplate).
-Elegí esta plantilla porque tiene preconfigurado un proyecto Vite con React, typescript, test (vitest), tailwind y algunas configuraciones de Pretties y Eslint muy cómodas.
+
